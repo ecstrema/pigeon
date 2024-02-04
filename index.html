@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Un jeu ou les enfants mignons sont les méchants et les pigeons sont les héros" />
+    <meta
+      name="description"
+      content="Un jeu ou les enfants mignons sont les méchants et les pigeons sont les héros"
+    />
     <meta name="keywords" content="pigeon, jeu, enfants, méchants, héros" />
     <meta name="author" content="ecstrema" />
-    <link rel="icon" type="image/png" href="./pigeon.png">
+    <link rel="icon" type="image/png" href="./pigeon.png" />
 
     <title>T'as Pigeon?</title>
     <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
@@ -57,7 +60,10 @@
       <div
         id="pigeon"
         class="absolute top-[20%] h-[8%] w-[8%] transition-[position] opacity-0 transition-opacity"
-        style="background-image: url('./pigeon.png'); background-size: 100% auto"
+        style="
+          background-image: url('./pigeon.png');
+          background-size: 100% auto;
+        "
       ></div>
     </div>
     <script>
@@ -95,7 +101,9 @@
         div.innerHTML = `
             <p class="text-white text-xl mx-6 mb-8">Vous avez tranquillement réalisé que votre seul moyen de vous défendre est de déféquer cordialement sur la foule de passants.</p>
             <button id="buttonPlay" class="bg-white text-black p-2 rounded-md">Suivant</button>`;
-        document.getElementById("buttonPlay").addEventListener("click", summary3);
+        document
+          .getElementById("buttonPlay")
+          .addEventListener("click", summary3);
       }
 
       function summary1() {
@@ -104,7 +112,9 @@
             <p class="text-white text-xl mx-6 mb-8">Vous êtes un pauvre petit pigeon, et même les petits enfants qui vont dans les parcs sont méchants avec vous et votre habitat. On vous méprise et on lance des déchets partout.</p>
             <button id="buttonPlay" class="bg-white text-black p-2 rounded-md">Suivant</button>`;
 
-        document.getElementById("buttonPlay").addEventListener("click", summary2);
+        document
+          .getElementById("buttonPlay")
+          .addEventListener("click", summary2);
       }
 
       function playStartAnimation() {
@@ -117,7 +127,9 @@
             <img src="./pigeon.png" class="h-[20%] w-[20%] mb-2" />
             <button id="buttonPlay" class="bg-white text-black p-2 rounded-md">Jouer</button>`;
         scene.appendChild(div);
-        document.getElementById("buttonPlay").addEventListener("click", summary1);
+        document
+          .getElementById("buttonPlay")
+          .addEventListener("click", summary1);
       }
 
       function playEndAnimation() {
@@ -176,12 +188,13 @@
         });
       }
 
-      const idToWidthHeight = {
+      const idToWidthHeight = [
         //  w      px  / ratio, h     px  / ratio
-        0: { width: 262 / 30, height: 401 / 30, name: "skeleton" },
-        1: { width: 128 / 30, height: 340 / 30, name: "normal-boy" },
-        2: { width: 394 / 50, height: 445 / 50, name: "boy-with-chameleon" },
-      };
+        { width: 262 / 30, height: 401 / 30, name: "skeleton" },
+        { width: 128 / 30, height: 340 / 30, name: "normal-boy" },
+        { width: 394 / 50, height: 445 / 50, name: "boy-with-chameleon" },
+        { width: 294 / 50, height: 458 / 50, name: "jazz" },
+      ];
       const maxTargetHeight = Object.entries(idToWidthHeight).reduce(
         (acc, [_, item]) => Math.max(acc, item.height),
         0
@@ -216,7 +229,7 @@
             coeff * Math.exp(-score / coeff) + Math.random() * 30;
 
           const target = document.createElement("img");
-          const id = Math.floor(Math.random() * 3);
+          const id = Math.floor(Math.random() * idToWidthHeight.length);
           target.setAttribute("src", `./target-${id}.png`);
           target.dataset.id = id;
 
