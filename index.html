@@ -88,7 +88,7 @@
       function summary2() {
         const div = document.getElementById("startText");
         div.innerHTML = `
-            <p class="text-white text-xl mx-6 mb-8">Vous avez tranquillement réalisé que votre seul moyen de vous défendre est de déféquer cordialement sur la foule de passant.</p>
+            <p class="text-white text-xl mx-6 mb-8">Vous avez tranquillement réalisé que votre seul moyen de vous défendre est de déféquer cordialement sur la foule de passants.</p>
             <button id="buttonPlay" class="bg-white text-black p-2 rounded-md">Suivant</button>`;
         document.getElementById("buttonPlay").addEventListener("click", summary3);
       }
@@ -107,8 +107,8 @@
         div.className = "flex flex-col items-center justify-center h-full";
         div.id = "startText";
         div.innerHTML = `<h1 class="text-4xl text-white">T'as pas pigeon?</h1>
-            <h2 class="text-2xl text-white">Un jeu ou les enfants sont les méchants</h2>
-            <span class="text-white text-xl">Et les pigeons sont les gentils</span>
+            <h2 class="text-2xl text-white">Un jeu ou les enfants mignons sont les méchants</h2>
+            <p class="text-white text-xl">Et les pigeons sont les héros</p>
             <img src="/pigeon.png" class="h-[20%] w-[20%] mb-2" />
             <button id="buttonPlay" class="bg-white text-black p-2 rounded-md">Jouer</button>`;
         scene.appendChild(div);
