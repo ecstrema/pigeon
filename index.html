@@ -150,7 +150,6 @@
 
         document.getElementById("title").style.opacity = 1;
         pigeon.classList.remove("opacity-0");
-        console.log(pigeon)
         pigeon.style.left = pigeonX + "%";
 
         window.addEventListener("keydown", () => {
@@ -212,9 +211,9 @@
         } else {
           counter = 0;
 
-          const coeff = 150;
+          const coeff = 60;
           nextTargetCounter =
-            coeff * Math.exp(-score / coeff) + 10 + Math.random() * 100;
+            coeff * Math.exp(-score / coeff) + Math.random() * 30;
 
           const target = document.createElement("img");
           const id = Math.floor(Math.random() * 3);
@@ -230,7 +229,7 @@
             ? `${-idToWidthHeight[id].width}%`
             : `100%`;
           target.dataset.goingRight = goingRight;
-          target.dataset.speed = Math.random() * 0.1 + 0.05;
+          target.dataset.speed = Math.random() * 0.2 + 0.1;
           if (!goingRight) {
             target.style.transform = "scaleX(-1)";
           }
@@ -283,10 +282,10 @@
 
         if (pressedKeys["ArrowRight"]) {
           pigeonGoingRight = true;
-          pigeonX += 1;
+          pigeonX += 0.3;
         } else if (pressedKeys["ArrowLeft"]) {
           pigeonGoingRight = false;
-          pigeonX -= 1;
+          pigeonX -= 0.3;
         }
 
         const newProjectiles = [];
